@@ -39,3 +39,10 @@ def delete(request, pk, template_name='crudapp/confirm_delete.html'):
         contact.delete()
         return redirect('index')
     return render(request, template_name, {'object':contact})
+
+class IndexFront(ListView):
+    template_name = 'crudapp/index.html'
+    context_object_name = 'contact_list'
+    
+    def get_queryset(self):
+        return redirect('index')
